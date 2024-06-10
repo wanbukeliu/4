@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签网页</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="12.js" defer></script> -->
+    <style>
+        h3,
+        h1 {
+            border: 5px solid red;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#home">主页</a></li>
+        <li><a href="#news">新闻</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+    <audio controls>
+        <source
+            src="https://m10.music.126.net/20240602115900/c385a7560f414ca762f0aec66258198a/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/3963437725/ad13/e2a9/8aab/0d1e3f0eca5faa935dbb8fac9c58ecff.mp3"
+            type="audio/mp3" />
+        <source
+            src="https://m10.music.126.net/20240602120121/ce69355c67a49dcf8acd6eab8cf30fef/ymusic/550f/040f/000b/be0365fbb33edae7b57e7a1ae894d659.mp3"
+            type="audio/ogg" />
+        <p>你的浏览器不支持该音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+    </audio>
+    <p>精忠报国/屠洪刚</p>
+
+    <video
+        src="https://cloudvideo.thepaper.cn/video/d86d28879114494190d3f2550b15aac5/hd/b0442f81-c538-4f80-bba4-a028f06ffc6d-b49b84fe-8dcb-54ff-e096-8e03fea9d48b.mp4"
+        controls poster="https://puui.qpic.cn/vpic_cover/j33695w0nxe/j33695w0nxe_1672901714_hz.jpg/1280">
+        <p>
+            你的浏览器不支持 HTML 视频。可点击<a href="rabbit320.mp4">此链接</a>观看。
+        </p>
+    </video>
+
+    <a href="https://www.toopic.cn/public/uploads/small/1634204735337163420473597.jpg"
+        download="firefox-latest-64bit-installer.exe">
+        下载最新的 Firefox 中文版 - Windows（64 位）
+    </a>
+
+    <h1>
+        点击右图访问MDN<a href="https://developer.mozilla.org/zh-CN/"><img
+                src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1niLfm.img?w=534&h=366&m=6&x=485&y=196&s=89&d=89"
+                title="赵丽颖" alt="">
+    </h1>
+
+    <h1>原爬虫知乎程序,获取结果不完整,正在更新 </h1>
+    <uh2>
+        <h3>声明</h3>
+        <p>
+            不能获得一个知乎回答的全部点赞者链接,最多获取1999个,即使使用selenium或playwright(知乎限制).<br>一个知乎回答的全部点赞者链接已被加密,如果不能JS逆向破解加密参数,<br>
+            即使携带cookies,知乎服务器也会故意给你返回错误的数据,给你返回不完整的数据,不完整的点赞者链接.
+        </p>
+        <p>
+            首先说明，虽然程序是我写的打包的，下面也提供了txt形式的源代码，<br>
+            在另一台windows运行也没问题，微云步沙箱只是提示不要安装在C盘，腾讯哈博也检测没问题.<br>但是从本网页下载exe文件仍然会被我的edge/chorme浏览器警告然后拦截.有顾虑的可以看最后的安全运行方法.
+        </p>
+        <p>
+            非javascript逆向爬虫,知乎限制，一个回答最多能爬1980个点赞者链接,每小时爬取600条左右.<br>exe运行输出结果csv文件也是表格，和excel几乎没差别excel可打开.
+        </p>
+        </h2>
+
+        <h2>
+            <h3>爬虫步骤</h3>
+            <p>手机端:知乎app——选择一个知乎回答——分享——分享链接——复制到一个空白文档.<br>就会出现“https://www.zhihu.com/question/655477917/answer/3492900832”这类网址,<br>"question"后面的数字就是问题编号，"answer"后面的数字就是回答编号.
+            </p>
+            <p>电脑网页端:打开知乎网页——选择一个知乎回答——分享——分享链接——复制到一个空白文档或网址输入栏,<br>就会出现“https://www.zhihu.com/question/655477917/answer/3492900832”这类网址,<br>"question"后面的数字就是问题编号，"answer"后面的数字就是回答编号.如下图.
+                <img src="1.jpg" alt="个人网站">
+            </p>
+            <p>爬一个回答的点赞者主页网址链接(最多能爬1980个)，输出一个csv文件.</li>
+            <p>结果如下图.已注销用户主页的网址：https://www.zhihu.com/people/，正常用户的主页网址：https://www.zhihu.com/people/ +"
+                注册时的用户名(中文名会改为英文/英文+数字)".如下图.
+            </p>
+            <img src="2.jpg" alt="个人网站">
+            <p>访问一个知乎用户的主页网址链接，获得网页源代码，从源代码筛选出9类信息.知乎名,主页网址链接,个人签名,IP属地,被关注,关注,赞同,喜欢,收藏.输出一个csv文件.如下图.</p>
+            <img src="3.jpg" alt="个人网站">
+            <p>安装包是exe文件，还不会设置图形化操作页面，所以双击会打开命令行运行，只需输入"问题编号","回答编号".如下图.</p>
+            <img src="4.jpg" alt="个人网站">
+        </h2>
+
+        <h2>
+            <h3>注意事项</h3>
+            <p>知乎爬虫exe运行输出2个csv文件，点赞者的地域IP分类运行输出一个csv文件</p>
+            <p>知乎爬虫exe运行出现，“错误”，不用理会，这些错误都是已注销用户</p>
+            <p>第二个exe文件运行需要读取第一个exe文件输出的一个文件，2个exe文件必须放在同一个文件夹。exe文件最好放在D/E/F等盘，不要放C盘。</p>
+            <a href="知乎爬虫.zip" download="知乎爬虫.zip">知乎爬虫压缩包</a>
+            <a href="点赞者的地域IP分类.zip" download="点赞者的地域IP分类.zip">点赞者的地域IP分类压缩包</a>
+            <a href="知乎爬虫的代码.txt" download="ExampleDocument.txt" class="download-link">知乎爬虫的源代码</a>
+            <a href="整理爬取结果IP的代码.txt" download="ExampleDocument.txt" class="download-link">点赞者的地域IP分类的源代码</a>
+        </h2>
+
+        <h2>
+            <h3>
+                安全运行方法</h3>
+            <p>云沙箱检测exe文件，安全无毒后运行
+                <a href="https://www.bilibili.com/video/BV1Be411K7dj/" target="_self">哔哩哔哩5款沙箱工具推荐</a>
+            </p>
+            <p>
+                <a href="https://s.threatbook.com/" target="_self">微步云沙箱</a>
+                <a href="https://habo.qq.com/" target="_self">腾讯哈勃分析系统</a>
+                <a href="https://www.virustotal.com/" target="_self">VirusTotal</a>
+                <a href="http://www.virscan.org" target="_self">VirScan</a>
+                <a href="https://mac-cloud.riskivy.com/detect" target="_self">大圣云沙箱</a>
+            </p>
+            <p>或者淘宝12元购买家庭版windows升级专业版，专业版有windows sandox功能，直接把exe文件拖拽到windows sandox运行<a
+                    href="https://www.bilibili.com/video/BV1U94y1B7Em/" target="_self">windows sandbox教程</a>
+        </h2>
+
+
+
+</body>
+
+</html>

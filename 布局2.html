@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #eee;
+        }
+
+        /* * {
+            border: 1px solid black;
+        } */
+
+        .mg8 {
+            margin: 8px;
+        }
+
+        .mgr8 {
+            margin-right: 8px;
+        }
+
+        .mgt8 {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body style="display: flex;">
+    <!-- 侧边栏 -->
+    <div style="width:200px; background-color: white"></div>
+    <!-- 主区域 -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+        <!-- 上栏 -->
+        <div style="height: 100px; background-color: white"></div>
+        <!-- 下栏 -->
+        <div style="flex: 1; display: flex;">
+            <!-- 左区 -->
+            <div style="flex: 3;display: flex;flex-direction: column;" class="mg8">
+                <!-- 数据区 -->
+                <div style="display:flex;">
+                    <!-- 数据块 -->
+                    <div style="flex: 1;height: 100px;background-color: white;" class="mgr8"></div>
+                    <div style="flex: 1;height: 100px;background-color: white;" class="mgr8"></div>
+                    <div style="flex: 1;height: 100px;background-color: white;" class="mgr8"></div>
+                    <div style="flex: 1;height: 100px;background-color: white;"></div>
+                </div>
+                <!-- 列表区 -->
+                <div style="display: flex;flex-direction: column;">
+                    <div style="height: 150px;background-color: white;" class="mgt8"></div>
+                    <div style="height: 150px;background-color: white;" class="mgt8"></div>
+                    <div style="height: 150px;background-color: white;" class="mgt8"></div>
+
+                </div>
+            </div>
+            <!-- 右区 -->
+            <div style="flex: 1;display: flex;flex-direction: column;" class="mg8 mgt8">
+                <!-- 消息区 -->
+                <div style="height: 150px;background-color: white;"></div>
+                <!-- 提示区 -->
+                <div style="height: 300px;background-color: white;" class="mgt8"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
