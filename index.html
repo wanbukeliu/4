@@ -4,70 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>当前要事v1</title>
+    <meta name="description" content="记录和提醒当前最重要的事,可以设置为浏览器起始页tab">
     <style>
         body {
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
-            background-color: #eee;
+            background-image: url('https://tse4-mm.cn.bing.net/th/id/OIP-C.5XBxTZ9fgAmYjNS5FkMrIAHaLD?rs=1&pid=ImgDetMain');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
 
-        .border-gray {
-            border: 1px solid #cccccc;
-            /* 灰色边框 */
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
         }
 
-        h1 {
-            margin: 20px;
-            padding: 20px;
+        #shuRuKuang {
+            border: 0;
+            border-bottom: 2px solid #fff;
+            padding: 4px 2px;
+            display: block;
+            background: 0;
+            line-height: 1.5;
+            outline: none;
             text-align: center;
+            transition: border-color 0.2s ease-in-out;
+            border-radius: 0;
+            color: #fff;
+            font-size: 2rem;
+            max-width: 90%;
+
+        }
+
+        #anNiu {
+            margin-left: -50px;
+            margin-right: 10px;
+            color: #ccc;
+            border-radius: 50%;
+            height: 40px;
+            width: 40pt;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #ccc;
         }
     </style>
 </head>
 
-<body style="display: flex;">
-    <!-- 侧边栏 -->
-    <div class="border-gray" style="width: 300px; display: flex; flex-direction: column;">
-        <div class="border-gray" style="flex: 1;">
-            <h1>前情提要</h1>
-        </div>
-        <div class="border-gray" style="flex: 1;">
-            <h1>爬虫步骤</h1>
-        </div>
-        <div class="border-gray" style="flex: 1;">
-            <h1>爬虫结果</h1>
-        </div>
-        <div class="border-gray" style="flex: 1;">
-            <h1>安全运行</h1>
-        </div>
+<body>
+    <div class="box">
+        <input placeholder="最重要的事?" id="shuRuKuang">
+        <span id="anNia" onclick="change()">√</span>
     </div>
-    <!-- 主区域 -->
-    <div class="border-gray" style="display: flex; flex-direction: column; flex: 1; ">
-        <div class="border-gray" style="flex: 1;">
-            <h1>原爬虫知乎程序,获取结果不完整,正在更新</h1>
-        </div>
-        <div class="border-gray" style="flex: 4;">
-            <div style="display: flex; flex-direction: column;">
-                <button id="dzs" onclick="dianZan()">0</button>
-                <script>
-                    function dianZan() {
-                        let dianZanShuBiaoQian = window.document.getElementById('dzs');
-                        let dianZanShu = parseInt(dianZanShuBiaoQian.innerText);
-                        let xinShuZi = dianZanShu + 1;
-                        dianZanShuBiaoQian.innerText = xinShuZi;
-                        return
+    <script>
+        let youShi = false;
+        function change() {
+            let anNia = document.getElementById("anNia");
+            let shuRuKuang = document.getElementById("shuRuKuang");
 
-                    }
-                </script>
-                <a href="个人.html" target="_blank">我的网页1</a>
-                <a href="各种标签.html" target="_blank">我的网页2</a>
-                <a href="布局.html" target="_blank">我的网页3</a>
-                <a href="布局2.html" target="_blank"
-                    style="background-image: url(https://thumbs.dreamstime.com/z/pretty-young-russian-model-12145153.jpg?ct=jpeg);width: 800px;height: 90vh;">我的网页4</a>
-                <a href="浏览器起始页.html" target="_blank">我的网页5</a>
-            </div>
-        </div>
-    </div>
+            if (youShi) {
+                youShi = false;
+                anNia.innerText = "√";
+                shuRuKuang.style.borderBottomColor = "#fff";
+                shuRuKuang.value = "";
+                shuRuKuang.readOnly = false;
+                window.localStorage.removeItem('shi');
+            } else {
+                youShi = true;
+                anNia.innerText = "X";
+                shuRuKuang.style.borderBottomColor = "transparent";
+                shuRuKuang.readOnly = true;
+                window.localStorage.setItem("shi", shuRuKuang.value);
+            }
+
+        }
+        let data = window.localStorage.getItem('shi')
+        if (data) {
+            document.getElementById("shuRuKuang").value = data;
+            change();
+        }
+    </script>
+
 </body>
 
 </html>
