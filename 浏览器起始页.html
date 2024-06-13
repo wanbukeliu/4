@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当前要事v1</title>
+    <meta name="description" content="记录和提醒当前最重要的事,可以设置为浏览器起始页tab">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.9809217f5c14005198e125ef057d7e4c?rik=4gxqwM8wuHGiUw&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #shuRuKuang {
+            border: 0;
+            border-bottom: 2px solid #fff;
+            padding: 4px 2px;
+            display: block;
+            background: 0;
+            line-height: 1.5;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.2s ease-in-out;
+            border-radius: 0;
+            color: #fff;
+            font-size: 2rem;
+            max-width: 90%;
+
+        }
+
+        #anNiu {
+            margin-left: -50px;
+            margin-right: 10px;
+            color: #ccc;
+            border-radius: 50%;
+            height: 40px;
+            width: 40pt;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input placeholder="最重要的事?" id="shuRuKuang">
+        <span id="anNia" onclick="change()">√</span>
+    </div>
+    <script>
+        let youShi = false;
+        function change() {
+            let anNia = document.getElementById("anNia");
+            let shuRuKuang = document.getElementById("shuRuKuang");
+
+            if (youShi) {
+                youShi = false;
+                anNia.innerText = "√";
+                shuRuKuang.style.borderBottomColor = "#fff";
+                shuRuKuang.value = "";
+                shuRuKuang.readOnly = false;
+            } else {
+                youShi = true;
+                anNia.innerText = "X";
+                shuRuKuang.style.borderBottomColor = "transparent";
+                shuRuKuang.readOnly = true;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
